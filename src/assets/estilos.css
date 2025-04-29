@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+p,
+a,
+li,
+label,
+span,
+input {
+  font-family: 'Geist', sans-serif;
+  font-optical-sizing: auto;
+  color: #303030;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+main {
+  min-height: 100vh;
+}
