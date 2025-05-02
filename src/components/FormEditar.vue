@@ -1,5 +1,5 @@
 <template>
-  <h1>EDITAR STOCK</h1>
+  <h1>EDITAR</h1>
   <div v-if="cargando">Cargando…</div>
   <div v-else-if="error">{{ error }}</div>
   <div v-else>
@@ -107,6 +107,7 @@ h1 {
 }
 label {
   display: block;
+  font-size: 1.1em;
 }
 input {
   margin: 0.5rem 0;
@@ -115,7 +116,8 @@ input {
   border: 1px solid #ccc;
   padding: 12px;
   width: 100%;
-  margin-bottom: 1.2em;
+  margin-bottom: 1.5em;
+  font-size: 1.1em;
 }
 button {
   padding: 0.5rem;
