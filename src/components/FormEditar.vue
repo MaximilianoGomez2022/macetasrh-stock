@@ -6,6 +6,16 @@
     <form @submit.prevent="onSubmit">
       <label> CC: </label>
       <input type="text" :value="producto.cc" disabled />
+
+      <label> Cemento: </label>
+      <input type="number" v-model.number="cemento" min="0" />
+
+      <label> Pintado: </label>
+      <input type="number" v-model.number="pintado" min="0" />
+
+      <label> Imper: </label>
+      <input type="number" v-model.number="imper" min="0" />
+
       <label> Stock: </label>
       <input type="number" v-model.number="nuevoStock" min="0" />
 
@@ -26,6 +36,9 @@ import { db } from '../firebase'
 // estado reactivo
 const producto = ref({})
 const nuevoStock = ref(0)
+const cemento = ref(0)
+const pintado = ref(0)
+const imper = ref(0)
 const cargando = ref(true)
 const guardando = ref(false)
 const error = ref('')
@@ -44,6 +57,9 @@ onMounted(async () => {
     } else {
       producto.value = { id: snap.id, ...snap.data() }
       nuevoStock.value = producto.value.stock ?? 0
+      cemento.value = producto.value.cemento
+      pintado.value = producto.value.pintado
+      imper.value = producto.value.imper
       console.log(producto)
     }
   } catch (e) {
@@ -62,6 +78,9 @@ const onSubmit = async () => {
     const refDoc = doc(db, 'Productos', producto.value.id)
     await updateDoc(refDoc, {
       stock: nuevoStock.value,
+      cemento: cemento.value,
+      pintado: pintado.value,
+      imper: imper.value
     })
 
     // Opcional: redirigir, mostrar mensaje, etc.
