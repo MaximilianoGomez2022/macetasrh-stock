@@ -5,6 +5,7 @@ import { db } from '../firebase' // ajustá el path si está en otra carpeta
 import { signOut } from 'firebase/auth'
 import { auth } from '@/firebase'
 import { useRouter } from 'vue-router'
+import Agregar from './Agregar.vue'
 
 const productos = ref([])
 const filtroCc = ref('') // texto que escribe el usuario
@@ -30,6 +31,10 @@ const cargarProductos = async () => {
 
 const totalPaginas = computed(() => {
   Math.ceil(productosFiltrados.value.length / productosPorPagina)
+})
+
+const total = computed(() => {
+  return productos.value.reduce((acc, producto) => acc + (producto.stock || 0), 0)
 })
 
 const productosPaginados = computed(() => {
@@ -81,8 +86,11 @@ function goToEditar(id) {
 
 <template>
   <div>
+    <div class="encabezado">
     <h1>PRODUCTOS</h1>
     <input v-model="filtroCc" type="text" placeholder="Buscar por número de CC" class="buscador" />
+    </div>
+    <h2>MACETAS EN STOCK: {{ total }}</h2>
     <ul>
       <li v-for="producto in productosPaginados" :key="producto.id">
         <div>CC {{ producto.cc }}</div>
@@ -109,6 +117,13 @@ function goToEditar(id) {
 </template>
 
 <style scoped>
+.encabezado {
+  margin-bottom: 20px;
+}
+h2 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
 ul li {
   list-style: none;
 }

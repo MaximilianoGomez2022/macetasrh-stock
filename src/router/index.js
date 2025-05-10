@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import EditView from '../views/EditView.vue'
+import AgregarView from '@/views/AgregarView.vue'
 import { auth } from '@/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
 
@@ -30,6 +31,11 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: LoginView,
+    },
+    {
+      path: '/agregar',
+      name: 'agregar',
+      component: AgregarView,
     },
     // {
     //   path: '/about',
