@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import EditView from '../views/EditView.vue'
 import AgregarView from '@/views/AgregarView.vue'
+import NuevoView from '@/views/NuevoView.vue'
 import { auth } from '@/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
 
@@ -36,6 +37,11 @@ const router = createRouter({
       path: '/agregar',
       name: 'agregar',
       component: AgregarView,
+    },
+    {
+      path: '/nuevo',
+      name: 'nuevo',
+      component: NuevoView,
     },
     // {
     //   path: '/about',

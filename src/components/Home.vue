@@ -87,8 +87,16 @@ function goToEditar(id) {
 <template>
   <div>
     <div class="encabezado">
-    <h1>PRODUCTOS</h1>
-    <input v-model="filtroCc" type="text" placeholder="Buscar por número de CC" class="buscador" />
+      <div class="titulo-boton">
+        <h1>PRODUCTOS</h1>
+        <Agregar></Agregar>
+      </div>
+      <input
+        v-model="filtroCc"
+        type="text"
+        placeholder="Buscar por número de CC"
+        class="buscador"
+      />
     </div>
     <h2>MACETAS EN STOCK: {{ total }}</h2>
     <ul>
@@ -117,6 +125,9 @@ function goToEditar(id) {
 </template>
 
 <style scoped>
+h1 {
+  display: inline;
+}
 .encabezado {
   margin-bottom: 20px;
 }
@@ -214,5 +225,12 @@ li {
   border-radius: 6px;
   outline: none;
   border-style: solid;
+  height: 50px;
+}
+.titulo-boton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 </style>

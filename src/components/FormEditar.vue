@@ -1,5 +1,5 @@
 <template>
-  <h1>EDITAR</h1>
+  <h1>EDITAR CC {{ producto.cc }}</h1>
   <div v-if="cargando">Cargando…</div>
   <div v-else-if="error">{{ error }}</div>
   <div v-else>
@@ -80,7 +80,7 @@ const onSubmit = async () => {
       stock: nuevoStock.value,
       cemento: cemento.value,
       pintado: pintado.value,
-      imper: imper.value
+      imper: imper.value,
     })
 
     // Opcional: redirigir, mostrar mensaje, etc.
@@ -104,6 +104,7 @@ h1 {
   margin-bottom: 0.8em;
   color: #3d3d3d;
   text-align: center;
+  font-size: 1.6em;
 }
 label {
   display: block;
